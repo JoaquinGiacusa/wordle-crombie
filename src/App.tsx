@@ -9,7 +9,6 @@ const item = words[Math.floor(Math.random() * words.length)];
 
 function App() {
   const [word, useWord] = useState(item);
-  // console.log(word);
   const [board, setBoard] = useState<string[]>(["", "", "", "", "", ""]);
   const [letterCurr, setLetterCurr] = useState<string>("");
   const [attemptCount, setAttemptCount] = useState(0);
@@ -18,7 +17,6 @@ function App() {
     wrongPlace: string[];
     used: string[];
   }>({ correct: [], wrongPlace: [], used: [] });
-
   const onEnter = () => {
     if (board[attemptCount].length != 5) return;
     if (!words.includes(board[attemptCount])) {
@@ -50,7 +48,7 @@ function App() {
     }
 
     if (word == board[attemptCount]) {
-      setAttemptCount((prev) => prev + 1);
+      setAttemptCount(6);
       window.alert("Palabra Correcta!");
     } else {
       setAttemptCount((prev) => prev + 1);
@@ -58,6 +56,7 @@ function App() {
   };
 
   useEffect(() => {
+    if (attemptCount > 5) return;
     if (letterCurr == "Enter") {
       onEnter();
     }
@@ -92,7 +91,12 @@ function App() {
 
   const keyPress = (event: any) => {
     const key = event.key;
-    if (key.match(/[a-z]/gi) || key == "Enter" || key == "Backspace") {
+
+    if (
+      "qwertyuiopasdfghjklñzxcvbnm".includes(key.toLowerCase()) ||
+      key == "Enter" ||
+      key == "Backspace"
+    ) {
       setLetterCurr(key);
     }
   };
