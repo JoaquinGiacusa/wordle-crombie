@@ -5,27 +5,32 @@ type RowProps = {
   word: string;
   wordAttempt: string;
   checkWord: boolean;
+
+  usedLetters: {
+    correct: string[];
+    wrongPlace: string[];
+    used: string[];
+  };
 };
 
-const Row: React.FC<RowProps> = ({ word, wordAttempt, checkWord }) => {
-  // const [checked, setChecked] = useState(checkWord);
-
-  // useEffect(() => {
-  //   if (checkWord) {
-  //     setChecked(true);
-  //   }
-  // }, [checkWord]);
-
+const Row: React.FC<RowProps> = ({
+  word,
+  wordAttempt,
+  checkWord,
+  usedLetters,
+}) => {
   return (
     <div className="row-wrapper">
       {word.split("").map((char, index) => {
-        // console.log(wordAttempt.includes(char));
         return (
           <div
             className={
-              char == wordAttempt[index] && checkWord
+              usedLetters.correct.includes(wordAttempt[index]) &&
+              char == wordAttempt[index] &&
+              checkWord
                 ? "correct-place square"
-                : word.includes(wordAttempt[index]) && checkWord
+                : usedLetters.wrongPlace.includes(wordAttempt[index]) &&
+                  checkWord
                 ? "correct-letter square"
                 : "square"
             }
@@ -35,22 +40,6 @@ const Row: React.FC<RowProps> = ({ word, wordAttempt, checkWord }) => {
           </div>
         );
       })}
-
-      {/* <div className={correctPlace ? "correct-place square" : "square"}>
-        {wordAttempt[0]}
-      </div>
-      <div className={correctPlace ? "correct-place square" : "square"}>
-        {wordAttempt[1]}
-      </div>{" "}
-      <div className={correctPlace ? "correct-place square" : "square"}>
-        {wordAttempt[2]}
-      </div>{" "}
-      <div className={correctPlace ? "correct-place square" : "square"}>
-        {wordAttempt[3]}
-      </div>{" "}
-      <div className={correctPlace ? "correct-place square" : "square"}>
-        {wordAttempt[4]}
-      </div> */}
     </div>
   );
 };

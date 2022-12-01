@@ -1,2 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
+  width: 100%;
+  font-family: Verdana, sans-serif;
+  /* min-height: 100vh; */
+}
+
+.title {
+  font-size: 40px;
+  border-bottom: 1px solid grey;
+  text-align: center;
+  margin: 0;
+  padding: 20px 0 5px 0;
+  margin-bottom: 50px;
 }
