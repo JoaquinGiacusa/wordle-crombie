@@ -22,7 +22,7 @@ function App() {
   const onEnter = () => {
     if (board[attemptCount].length != 5) return;
     if (!words.includes(board[attemptCount])) {
-      window.alert("La palabra no esta en la lista");
+      window.alert("La palabra no está en la lista.");
       return;
     }
 
@@ -51,7 +51,7 @@ function App() {
 
     if (word == board[attemptCount]) {
       setAttemptCount((prev) => prev + 1);
-      window.alert("parablra correcta");
+      window.alert("Palabra Correcta!");
     } else {
       setAttemptCount((prev) => prev + 1);
     }

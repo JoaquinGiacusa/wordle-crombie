@@ -80,6 +80,10 @@
   background-color: rgb(58, 57, 57, 0.8);
 }
 
+.enter-btn:focus {
+  outline: 0;
+}
+
 .enter-btn:active {
   background-color: rgb(58, 57, 57, 0.3);
 }
@@ -104,6 +108,10 @@
 
 .delete-btn:hover {
   background-color: rgb(58, 57, 57, 0.8);
+}
+
+.delete-btn:focus {
+  outline: 0;
 }
 
 .delete-btn:active {
