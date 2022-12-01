@@ -1,5 +1,5 @@
 import React from "react";
-import Key from "../key";
+import DeleteIcon from "../icons/delete";
 import "./style.css";
 
 type KeyboardProps = {
@@ -9,11 +9,15 @@ type KeyboardProps = {
     used: string[];
   };
   addLetterFromKeyBoard: (letter: string) => void;
+  onEnter: () => void;
+  onDelete: () => void;
 };
 
 const Keyboard: React.FC<KeyboardProps> = ({
   usedLetters,
   addLetterFromKeyBoard,
+  onEnter,
+  onDelete,
 }) => {
   const keysTop = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
   const keysMid = ["A", "S", "D", "F", "G", "H", "J", "K", "L", "Ñ"];
@@ -64,6 +68,9 @@ const Keyboard: React.FC<KeyboardProps> = ({
         })}
       </div>
       <div className="keyboard-line">
+        <button onClick={() => onEnter()} className="enter-btn key">
+          Enviar
+        </button>
         {keysBot.map((item, index) => {
           return (
             <div
@@ -83,6 +90,9 @@ const Keyboard: React.FC<KeyboardProps> = ({
             </div>
           );
         })}
+        <button onClick={() => onDelete()} className="delete-btn key">
+          <DeleteIcon />
+        </button>
       </div>
     </div>
   );

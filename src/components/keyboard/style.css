@@ -1,64 +1,54 @@
 .keyboard {
-  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  border-radius: 10px;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-  padding: 50px 0px;
   justify-content: center;
-  /* margin: 0px 40px; */
-  max-width: 900px;
-  margin: 0 auto;
-  margin-top: 50px;
-}
-
-@media (max-width: 900px) {
-  .keyboard {
-    max-width: 700px;
-  }
-}
-
-@media (max-width: 769px) {
-  .keyboard {
-    max-width: 380px;
-    padding: 30px 0px;
-  }
+  gap: 8px;
+  /* border-radius: 10px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 5px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */
+  /* padding: 15px 10px; */
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto;
+  margin-top: 30px;
 }
 
 .keyboard .keyboard-line {
   display: flex;
   flex-direction: row;
+  width: 100%;
   gap: 5px;
 }
 
 /* keys */
 .key {
-  color: rgb(80, 78, 78);
+  color: rgb(77, 75, 75);
   background-color: white;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  font-size: 35px;
+  font-size: 33px;
   border-radius: 6px;
-  width: 80px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   cursor: pointer;
-  padding: 3px 0;
+  padding: 10px 10px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   .key {
-    width: 60px;
+    font-size: 25px;
+    padding: 10px 5px;
   }
 }
 
-@media (max-width: 769px) {
+@media (max-width: 450px) {
   .key {
-    font-size: 25px;
-    width: 30px;
+    font-size: 20px;
+    padding: 5px;
   }
 }
 
@@ -67,13 +57,62 @@
 }
 
 .correct.key {
-  background-color: rgb(136, 238, 89);
+  background-color: var(--correct-place);
 }
 
 .wrong-place.key {
-  background-color: rgb(229, 245, 83);
+  background-color: var(--wrong-place);
 }
 
 .used.key {
-  background-color: rgb(197, 196, 196);
+  background-color: var(--used);
+}
+
+.enter-btn {
+  background-color: rgb(58, 57, 57);
+  color: white;
+  font-size: 22px;
+  padding: 0 20px;
+  border: none;
+}
+
+.enter-btn:hover {
+  background-color: rgb(58, 57, 57, 0.8);
+}
+
+.enter-btn:active {
+  background-color: rgb(58, 57, 57, 0.3);
+}
+
+@media (max-width: 600px) {
+  .enter-btn {
+    font-size: 14px;
+    padding: 0px 5px;
+  }
+}
+
+.delete-btn {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 22px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.delete-btn:hover {
+  background-color: rgb(58, 57, 57, 0.8);
+}
+
+.delete-btn:active {
+  background-color: rgb(58, 57, 57, 1);
+}
+
+@media (max-width: 500px) {
+  .delete-btn {
+    padding: 0px 5px;
+    width: 30px;
+  }
 }

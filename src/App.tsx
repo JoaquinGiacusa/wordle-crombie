@@ -21,6 +21,10 @@ function App() {
 
   const onEnter = () => {
     if (board[attemptCount].length != 5) return;
+    if (!words.includes(board[attemptCount])) {
+      window.alert("La palabra no esta en la lista");
+      return;
+    }
 
     for (let i = 0; i < word.length; i++) {
       const char = word[i];
@@ -111,6 +115,8 @@ function App() {
         usedLetters={usedLetters}
       ></Board>
       <Keyboard
+        onEnter={() => onEnter()}
+        onDelete={() => setLetterCurr("Backspace")}
         addLetterFromKeyBoard={(letter) => setLetterCurr(letter)}
         usedLetters={usedLetters}
       ></Keyboard>

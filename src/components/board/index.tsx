@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Row from "../row";
-import "./style.css";
 
 type BoardProps = {
   word: string;
@@ -20,7 +19,7 @@ const Board: React.FC<BoardProps> = ({
   usedLetters,
 }) => {
   return (
-    <div className="board-wrapper">
+    <div>
       {board.map((item, index) => {
         return (
           <Row
