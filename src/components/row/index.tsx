@@ -29,11 +29,15 @@ const Row: React.FC<RowProps> = ({
               char == wordAttempt[index] &&
               checkWord
                 ? "correct-place square"
+                : (usedLetters.used.includes(wordAttempt[index]) &&
+                    checkWord) ||
+                  (wordAttempt.slice(0, index).includes(wordAttempt[index]) &&
+                    checkWord)
+                ? "used square"
                 : usedLetters.wrongPlace.includes(wordAttempt[index]) &&
                   checkWord
-                ? "correct-letter square"
-                : usedLetters.used.includes(wordAttempt[index]) && checkWord
-                ? "used square"
+                ? // checkWord && !usedLetters.correct.includes(wordAttempt[index])
+                  "correct-letter square"
                 : "square"
             }
             key={index}

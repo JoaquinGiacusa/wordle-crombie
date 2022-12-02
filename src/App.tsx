@@ -9,6 +9,7 @@ const item = words[Math.floor(Math.random() * words.length)];
 
 function App() {
   const [word, useWord] = useState(item);
+  // console.log(word);
   const [board, setBoard] = useState<string[]>(["", "", "", "", "", ""]);
   const [letterCurr, setLetterCurr] = useState<string>("");
   const [attemptCount, setAttemptCount] = useState(0);
@@ -52,6 +53,9 @@ function App() {
       window.alert("Palabra Correcta!");
     } else {
       setAttemptCount((prev) => prev + 1);
+      if (attemptCount >= 5) {
+        window.alert(`Perdiste :(`);
+      }
     }
   };
 
